@@ -1,4 +1,3 @@
-# Gabarito dos testes escondidos (uso: roda a suíte INTEIRA com o container fresco)
 import requests
 
 BASE = "http://localhost:8080"
