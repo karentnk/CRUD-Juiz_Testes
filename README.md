@@ -24,12 +24,6 @@ docker build -t biblioteca .
 docker run -d -p 8080:8080 --name bib biblioteca
 ```
 
-A API leva uns 5–10 s para subir (Spring Boot). Para conferir que está no ar:
-
-```bash
-curl http://localhost:8080/books   # deve responder []
-```
-
 Para parar e remover o container:
 
 ```bash
@@ -38,7 +32,7 @@ docker rm -f bib
 
 ## Subir localmente (desenvolvimento)
 
-Requisitos: Java 17 ou superior. O Maven já vem no wrapper (`./mvnw`), não precisa instalar.
+Requisitos: Java 17. O Maven já vem no wrapper (`./mvnw`).
 
 ```bash
 ./mvnw spring-boot:run
@@ -48,32 +42,6 @@ Se o Maven estiver instalado, também funciona `mvn spring-boot:run`.
 No IntelliJ: abrir o `pom.xml` como projeto e executar a classe `CrudprojectApplication`.
 
 No Windows, usar `mvnw.cmd spring-boot:run`.
-
-Ou gerar o `.jar` e rodar direto:
-
-```bash
-./mvnw -DskipTests package
-java -jar target/crudproject-0.0.1-SNAPSHOT.jar
-```
-
-## Validações
-
-- `titulo` e `autor`: obrigatórios, string, não vazios (só espaços conta como vazio).
-- `ano`: obrigatório, inteiro entre 1450 e o ano atual.
-- `paginas`: opcional, inteiro >= 1; se omitido, vale `0`.
-- Tipo errado (ex.: `"titulo": 123`, `"ano": "2000"`, `"ano": 2000.5`) → 400.
-- JSON inválido ou corpo vazio no POST → 400. Campos extras são ignorados.
-- `id` e `disponivel` não são aceitos no corpo; `disponivel` só muda via emprestar/devolver.
-
-## Estrutura
-
-```
-Dockerfile             # build multi-stage (Maven -> JRE 17)
-pom.xml, mvnw, .mvn/   # build Maven + wrapper
-src/main/java/...      # controller / service / repository / model
-public_tests.py        # testes públicos (modelo)
-hidden_tests.py        # simulação de testes escondidos
-```
 
 ## Rodar a suíte de testes
 
