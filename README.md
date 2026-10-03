@@ -15,12 +15,14 @@ Sobe em `http://localhost:8080`. Os dados são perdidos a cada reinício.
 | POST | `/books/{id}/emprestar` | 200 | 404, 409 |
 | POST | `/books/{id}/devolver` | 200 | 404, 409 |
 
+O código fica na pasta `crudproject/`.
+
 ## Subir com Docker (caminho da correção)
 
-Requisito: Docker (ou Podman) instalado.
+Requisito: Docker (ou Podman) instalado. A partir da raiz do repositório:
 
 ```bash
-docker build -t biblioteca .
+docker build -t biblioteca crudproject/
 docker run -d -p 8080:8080 --name bib biblioteca
 ```
 
@@ -32,16 +34,14 @@ docker rm -f bib
 
 ## Subir localmente (desenvolvimento)
 
-Requisitos: Java 17. O Maven já vem no wrapper (`./mvnw`).
+Requisitos: Java 17 e Maven instalados.
 
 ```bash
-./mvnw spring-boot:run
+cd crudproject
+mvn spring-boot:run
 ```
 
-Se o Maven estiver instalado, também funciona `mvn spring-boot:run`.
-No IntelliJ: abrir o `pom.xml` como projeto e executar a classe `CrudprojectApplication`.
-
-No Windows, usar `mvnw.cmd spring-boot:run`.
+No IntelliJ: abrir o `crudproject/pom.xml` como projeto e executar a classe `CrudprojectApplication`.
 
 ## Rodar a suíte de testes
 
@@ -51,6 +51,7 @@ Com a API no ar em `http://localhost:8080`, em outro terminal:
 python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install pytest requests
+cd crudproject
 pytest hidden_tests.py public_tests.py
 ```
 
