@@ -17,6 +17,9 @@ Sobe em `http://localhost:8080`. Os dados são perdidos a cada reinício.
 
 O código fica na pasta `crudproject/`.
 
+> Guia para testar em outra máquina e roteiro do dia da prova: [`PASSO_A_PASSO.md`](PASSO_A_PASSO.md).
+> Simulado com o contrato de exemplo do professor (`/tasks`): [`simulado-tasks/`](simulado-tasks/).
+
 ## Subir com Docker (caminho da correção)
 
 Requisito: Docker (ou Podman) instalado. A partir da raiz do repositório:
