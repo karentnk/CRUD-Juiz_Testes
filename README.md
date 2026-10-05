@@ -45,6 +45,9 @@ No IntelliJ: abrir o `crudproject/pom.xml` como projeto e executar a classe `Cru
 
 ## Rodar a suíte de testes
 
+Os testes públicos (`public_tests.py`) são fornecidos pelo professor e não ficam neste
+repositório. `hidden_tests.py` é uma simulação própria dos testes escondidos, para treino.
+
 Com a API no ar em `http://localhost:8080`, em outro terminal:
 
 ```bash
@@ -52,7 +55,7 @@ python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install pytest requests
 cd crudproject
-pytest hidden_tests.py public_tests.py
+pytest hidden_tests.py
 ```
 
 Reinicie a API antes de cada execução completa: alguns testes esperam a base vazia e ids começando em 1.
