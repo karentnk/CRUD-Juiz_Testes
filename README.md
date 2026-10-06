@@ -45,7 +45,7 @@ No IntelliJ: abrir o `pom.xml` como projeto e executar a classe `CrudprojectAppl
 Os testes públicos (`public_tests.py`) são fornecidos pelo professor e não ficam neste
 repositório. `hidden_tests.py` é uma simulação própria dos testes escondidos, para treino.
 
-Com a API no ar em `http://localhost:8080`, em outro terminal:
+Com a API no ar em `http://localhost:8080`, em outro terminal :
 
 ```bash
 python3 -m venv .venv
